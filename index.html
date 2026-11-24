@@ -4,23 +4,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lorisse</title>
-<style>
-  :root { --bg: #14161a; --ink: #e8e6e1; --soft: #9a978f; }
-  @media (prefers-color-scheme: light) { :root { --bg: #faf8f4; --ink: #1d1c1a; --soft: #6b6862; } }
-  html, body { height: 100%; margin: 0; }
-  body { background: var(--bg); color: var(--ink); font: 18px/1.5 Georgia, "Times New Roman", serif;
-         display: flex; align-items: center; justify-content: center; padding: 0 16px; }
-  main { max-width: 34em; }
-  h1 { font-size: 2.4em; font-weight: normal; margin: 0 0 .3em; }
-  p { margin: 0 0 .8em; }
-  .soft { color: var(--soft); }
-</style>
+<meta name="description" content="Lorisse is a plugin for the Claude app: a memory that is yours, in files you can read.">
+<meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <h1>Lorisse</h1>
-  <p>A memory that is yours, in files you can read.</p>
-  <p class="soft">The first page is on its way.</p>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="./"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
+    <nav aria-label="The pages">
+      <a href="./" aria-current="page">Lorisse</a>
+      <a href="install/">Install</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Lorisse</h1>
+    <p class="lede">A memory that is yours, in files you can read.</p>
+    <a class="cta" href="install/">Install Lorisse <span aria-hidden="true">→</span></a>
+  </div>
+
+  <section>
+    <p class="body">Lorisse is a plugin for the Claude app. You talk; it files what matters (a decision, a thing to do, a person) as plain files in a folder on your own machine, and finds them again when you ask.</p>
+    <p class="body">The Claude app already brings the models, the mail, the calendar and the web. <b>Lorisse adds what is missing: a memory with rules.</b> One fact, one file. Every change is one step you can undo. Nothing is ever deleted.</p>
+  </section>
+
+  <section id="where">
+    <h2>Where it stands</h2>
+    <p class="body">Today is the first version: it proves the way in. One tool, which answers when you say hello. The filing tools come next, one small step at a time; this page will say so when they do.</p>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap row">
+    <span>The code: <a href="https://github.com/FreakingDuck/lorisse-plugin">github.com/FreakingDuck/lorisse-plugin</a></span>
+    <span>The way of working behind it: <a href="https://whysoserious.wtf/method/">whysoserious.wtf/method/</a></span>
+  </div>
+</footer>
 </body>
 </html>

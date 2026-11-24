@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Lorisse</title>
+<meta name="description" content="How to install Lorisse, the plugin, in the Claude desktop app or in Claude Code, on Windows or on a Mac.">
+<meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
+    <nav aria-label="The pages">
+      <a href="../">Lorisse</a>
+      <a href="./" aria-current="page">Install</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Install Lorisse</h1>
+    <p class="lede">Five minutes. Nothing is installed outside the Claude app, and it is removed in one click.</p>
+  </div>
+
+  <section id="before">
+    <h2>Before you start</h2>
+    <p class="body">You need the Claude desktop app with Cowork, or Claude Code. Lorisse's tool is a small program that runs on your own machine: Cowork and Claude Code start it; a plain chat does not.</p>
+  </section>
+
+  <section id="steps">
+    <div class="os">
+      <input type="radio" name="os" id="os-win" checked>
+      <input type="radio" name="os" id="os-mac">
+      <div class="seg" role="group" aria-label="Your machine"><label for="os-win">Windows</label><label for="os-mac">Mac</label></div>
+      <div class="pane pane-win note"><p><b>Windows.</b> Tried on Windows 11.</p></div>
+      <div class="pane pane-mac note"><p><b>Mac.</b> Written from the documentation; not yet tried on a Mac. The program is built for both Apple chips and Intel. If macOS asks whether to allow it, say yes once.</p></div>
+    </div>
+
+    <h2>In the Claude desktop app</h2>
+    <ol class="steps">
+      <li><span>Open <b>Customize</b>, then <b>Plugins</b>.</span></li>
+      <li><span>Choose <b>Add</b>, then <b>Add marketplace</b>, and type <code>FreakingDuck/lorisse-plugin</code>.</span></li>
+      <li><span>Find Lorisse in the list and install it.</span></li>
+      <li><span>Start a Cowork task on any folder and type: "Hello Lorisse, where are you?"</span></li>
+    </ol>
+
+    <h2>In Claude Code</h2>
+    <p class="where">The VS Code panel or a terminal.</p>
+    <ol class="steps">
+      <li><span>Type <code>/plugins</code> in the VS Code panel, or <code>/plugin</code> in a terminal.</span></li>
+      <li><span>Under <b>Marketplaces</b>, add <code>FreakingDuck/lorisse-plugin</code>. In a terminal you can also type <code>/plugin marketplace add FreakingDuck/lorisse-plugin</code>.</span></li>
+      <li><span>Under <b>Plugins</b> (<b>Discover</b> in a terminal), pick <code>lorisse</code>, <b>Install</b>, "Install for you".</span></li>
+      <li><span>Type: "Hello Lorisse, where are you?" and allow the tool when asked.</span></li>
+    </ol>
+  </section>
+
+  <section id="see">
+    <h2>What you should see</h2>
+    <p class="body">One line: Lorisse is here, and the folder it was started in. That is all it does today; it reads nothing and writes nothing.</p>
+  </section>
+
+  <section id="nothing">
+    <h2>If nothing answers</h2>
+    <ul class="checks">
+      <li>The plugin shows as installed and enabled.</li>
+      <li>You are in Cowork or Claude Code, not a plain chat.</li>
+      <li>Restart the app once.</li>
+    </ul>
+  </section>
+
+  <section id="remove">
+    <h2>To remove it</h2>
+    <p class="body">The same screen. In the desktop app, open Lorisse, open its menu and choose <b>Remove</b>. In Claude Code, on the <b>Installed</b> tab, choose <b>Uninstall</b>.</p>
+    <a class="back" href="../">← Back to the home page</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>The code: <a href="https://github.com/FreakingDuck/lorisse-plugin">github.com/FreakingDuck/lorisse-plugin</a></span>
+    <span>The way of working behind it: <a href="https://whysoserious.wtf/method/">whysoserious.wtf/method/</a></span>
+  </div>
+</footer>
+</body>
+</html>
