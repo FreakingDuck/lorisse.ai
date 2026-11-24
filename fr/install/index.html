@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installer Lorisse</title>
+<meta name="description" content="Comment installer Lorisse, le plugin, dans l'application de bureau Claude ou dans Claude Code, sous Windows ou sur un Mac.">
+<meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
+<link rel="alternate" hreflang="en" href="../../install/">
+<link rel="alternate" hreflang="fr" href="./">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
+    <nav aria-label="Les pages">
+      <a href="../">Lorisse</a>
+      <a href="./" aria-current="page">Installer</a>
+      <a href="../../install/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Installer Lorisse</h1>
+    <p class="lede">Cinq minutes. Rien n'est installé en dehors de l'application Claude, et tout s'enlève en un clic.</p>
+  </div>
+
+  <section id="before">
+    <h2>Avant de commencer</h2>
+    <p class="body">Il vous faut l'application de bureau Claude avec Cowork, ou bien Claude Code. L'outil de Lorisse est un petit programme qui tourne sur votre propre machine&nbsp;: Cowork et Claude Code le lancent, une simple conversation ne le lance pas.</p>
+  </section>
+
+  <section id="steps">
+    <div class="os">
+      <input type="radio" name="os" id="os-win" checked>
+      <input type="radio" name="os" id="os-mac">
+      <div class="seg" role="group" aria-label="Votre machine"><label for="os-win">Windows</label><label for="os-mac">Mac</label></div>
+      <div class="pane pane-win note"><p><b>Windows.</b> Essayé sur Windows 11, dans Claude Code.</p></div>
+      <div class="pane pane-mac note"><p><b>Mac.</b> Écrit d'après la documentation&#8239;; pas encore essayé sur un Mac. Le programme est prévu pour les puces Apple comme pour Intel. Si macOS demande s'il faut l'autoriser, répondez oui, une fois.</p></div>
+    </div>
+
+    <h2>Dans l'application de bureau Claude</h2>
+    <ol class="steps">
+      <li><span>Ouvrez <b>Customize</b>, puis <b>Plugins</b>.</span></li>
+      <li><span>Choisissez <b>Add</b>, puis <b>Add marketplace</b>, et tapez <code>FreakingDuck/lorisse-plugin</code>.</span></li>
+      <li><span>Trouvez Lorisse dans la liste et installez le plugin.</span></li>
+      <li><span>Lancez une tâche Cowork sur n'importe quel dossier et tapez «&nbsp;<span lang="en">Hello Lorisse, where are you?</span>&nbsp;» ou «&nbsp;Bonjour Lorisse, où es-tu&#8239;?&nbsp;».</span></li>
+    </ol>
+
+    <h2>Dans Claude Code</h2>
+    <p class="where">Le panneau de VS Code ou un terminal.</p>
+    <ol class="steps">
+      <li><span>Tapez <code>/plugins</code> dans le panneau de VS Code, ou <code>/plugin</code> dans un terminal.</span></li>
+      <li><span>Sous <b>Marketplaces</b>, ajoutez <code>FreakingDuck/lorisse-plugin</code>. Dans un terminal, vous pouvez aussi taper <code>/plugin marketplace add FreakingDuck/lorisse-plugin</code>.</span></li>
+      <li><span>Sous <b>Plugins</b> (<b>Discover</b> dans un terminal), choisissez <code>lorisse</code>, puis <b>Install</b>, puis «&nbsp;<span lang="en">Install for you</span>&nbsp;».</span></li>
+      <li><span>Tapez «&nbsp;<span lang="en">Hello Lorisse, where are you?</span>&nbsp;» ou «&nbsp;Bonjour Lorisse, où es-tu&#8239;?&nbsp;», puis autorisez l'outil quand Claude vous le demande.</span></li>
+    </ol>
+    <p class="where">Les menus sont cités en anglais&#8239;; dans une application en français, leurs noms peuvent différer.</p>
+  </section>
+
+  <section id="see">
+    <h2>Ce que vous devriez voir</h2>
+    <p class="body">Une ligne&nbsp;: Lorisse est là, avec le dossier où la tâche a été lancée. C'est tout ce que fait Lorisse aujourd'hui&nbsp;: rien n'est lu, rien n'est écrit.</p>
+  </section>
+
+  <section id="nothing">
+    <h2>Si rien ne répond</h2>
+    <ul class="checks">
+      <li>Le plugin apparaît comme installé et activé.</li>
+      <li>Vous êtes dans Cowork ou dans Claude Code, pas dans une simple conversation.</li>
+      <li>Redémarrez l'application une fois.</li>
+    </ul>
+  </section>
+
+  <section id="remove">
+    <h2>Pour l'enlever</h2>
+    <p class="body">Le même écran. Dans l'application de bureau, ouvrez Lorisse, ouvrez son menu et choisissez <b>Remove</b>. Dans Claude Code, sur l'onglet <b>Installed</b>, choisissez <b>Uninstall</b>.</p>
+    <a class="back" href="../">← Retour à l'accueil</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>Le code&nbsp;: <a href="https://github.com/FreakingDuck/lorisse-plugin">github.com/FreakingDuck/lorisse-plugin</a></span>
+    <span>La façon de travailler derrière&nbsp;: <a href="https://whysoserious.wtf/fr/method/">whysoserious.wtf/fr/method/</a></span>
+  </div>
+</footer>
+</body>
+</html>

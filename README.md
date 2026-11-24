@@ -6,6 +6,7 @@ A push to `main` publishes: the host deploys this repository into the web root.
 
 - `index.html`: the home page.
 - `install/`: how to install the plugin, on Windows and on a Mac.
+- `fr/`: the two pages in French, the same paths under `/fr/`; each page links to its twin.
 - `style.css`: the one stylesheet of every page.
 
 The plugin itself lives in `lorisse-plugin`.
