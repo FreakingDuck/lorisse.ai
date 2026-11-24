@@ -13,9 +13,8 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="./"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
-    <nav aria-label="Les pages">
-      <a href="./" aria-current="page">Lorisse</a>
-      <a href="install/">Installer</a>
+    <nav aria-label="Sur cette page">
+      <a href="#installer">Installer</a>
     </nav>
   </div>
 </header>
@@ -24,7 +23,7 @@
   <div class="hero">
     <h1>Lorisse</h1>
     <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
-    <a class="cta" href="install/">Installer Lorisse <span aria-hidden="true">→</span></a>
+    <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
   </div>
 
   <section>
@@ -32,6 +31,27 @@
     <p class="body">L'application Claude apporte déjà les modèles, le courrier, l'agenda et le web. <b>Lorisse ajoute ce qui manque&nbsp;: une mémoire avec des règles.</b> Un fait, un fichier. Chaque changement est un pas que vous pouvez défaire. Rien n'est jamais supprimé.</p>
     <p class="body">Lorisse arrive pas à pas&nbsp;: aujourd'hui, la première version vous répond quand vous dites bonjour. La mémoire suit.</p>
   </section>
+
+  <section id="installer">
+    <h2>Installer Lorisse</h2>
+    <p class="body">Cinq minutes. Tout se passe dans l'application Claude, et tout s'enlève en un clic.</p>
+    <div class="os">
+      <input type="radio" name="os" id="os-win" checked>
+      <input type="radio" name="os" id="os-mac">
+      <div class="seg" role="group" aria-label="Votre machine"><label for="os-win">Windows</label><label for="os-mac">Mac</label></div>
+      <div class="pane pane-win note"><p>Dans l'application Claude pour <b>Windows</b>&nbsp;:</p></div>
+      <div class="pane pane-mac note"><p>Dans l'application Claude pour <b>Mac</b>&nbsp;:</p></div>
+    </div>
+    <ol class="steps">
+      <li><span>Ouvrez <b>Customize</b>, puis <b>Plugins</b>.</span></li>
+      <li><span>Choisissez <b>Add</b>, puis <b>Add marketplace</b>, et tapez <code>FreakingDuck/lorisse-plugin</code>.</span></li>
+      <li><span>Trouvez Lorisse dans la liste et installez le plugin.</span></li>
+      <li><span>Lancez une tâche Cowork et tapez «&nbsp;Bonjour Lorisse, où es-tu&#8239;?&nbsp;».</span></li>
+    </ol>
+    <p class="body">Lorisse vous répond, et vous dit dans quel dossier vous êtes.</p>
+  </section>
+
+  <p class="made">Fait avec l'IA, à lire comme tel. Rien ici n'est garanti&#8239;; ce que cela fait sur votre machine vous appartient.</p>
 </main>
 
 <footer>
