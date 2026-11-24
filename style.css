@@ -106,6 +106,7 @@ p.body b { color: var(--cb-ink); }
 .os .pane b { color: var(--cb-ink); }
 
 .back { display: inline-block; margin-top: 8px; font-weight: 600; }
+.made { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 13px; color: var(--cb-ink-3); margin: 8px 0 40px; max-width: 64ch; }
 
 footer { padding: 32px 0 48px; border-top: 1px solid var(--cb-line); color: var(--cb-ink-3); font-size: 14px; }
 footer .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 20px; }
