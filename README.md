@@ -1,4 +1,4 @@
-# lorisse-site
+# lorisse.ai
 
 The pages of lorisse.ai. Plain HTML, no build step, no network call from a page.
 
