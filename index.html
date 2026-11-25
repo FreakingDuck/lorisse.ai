@@ -8,28 +8,60 @@
 <meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* the hero with the eye on the right */
+  .hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+  .cb-eye.big { width: 220px; height: 220px; }
+  .big .cb-eye-off-in { inset: 2px; }
+  .big .cb-eye-pupil { box-shadow: inset 6px 6px 0 -2px var(--cb-eye-rim); }
+  @media (max-width: 820px) { .cb-eye.big { width: 150px; height: 150px; } }
+  @media (max-width: 640px) { .hero-row { gap: 16px; } .cb-eye.big { width: 92px; height: 92px; } .big .cb-eye-pupil { box-shadow: inset 3px 3px 0 -1px var(--cb-eye-rim); } }
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
     <a class="brand" href="./"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
     <nav aria-label="Sur cette page">
+      <a href="#ce-qu-il-fait">Ce qu'il fait</a>
       <a href="#installer">Installer</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="hero">
-    <h1>Lorisse</h1>
-    <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
-    <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
+  <div class="hero hero-row">
+    <div>
+      <h1>Lorisse</h1>
+      <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
+      <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
+    </div>
+    <span class="cb-eye big" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span>
   </div>
 
   <section>
-    <p class="body">Lorisse est un plugin pour l'application Claude. Vous parlez&#8239;; Lorisse range ce qui compte (une décision, une chose à faire, une personne) dans de simples fichiers, dans un dossier de votre machine, et les retrouve quand vous le demandez.</p>
-    <p class="body">L'application Claude apporte déjà les modèles, le courrier, l'agenda et le web. <b>Lorisse ajoute ce qui manque&nbsp;: une mémoire avec des règles.</b> Un fait, un fichier. Chaque changement est un pas que vous pouvez défaire. Rien n'est jamais supprimé.</p>
-    <p class="body">Lorisse arrive pas à pas&nbsp;: aujourd'hui, la première version vous répond quand vous dites bonjour. La mémoire suit.</p>
+    <p class="body">Vous parlez avec Claude comme d'habitude. Quand quelque chose compte (une décision, une date, ce qu'une personne vous a dit), <b>Lorisse le range tout seul</b>, dans un simple fichier, dans un dossier de votre machine. Il vous le dit en une ligne, et c'est tout.</p>
+    <p class="body">Trois semaines plus tard, vous demandez&nbsp;: «&nbsp;qu'est-ce que je sais sur la chaudière&#8239;?&nbsp;» Lorisse retrouve, relit, et suit le fil jusqu'au devis, à l'artisan, à la date du prochain entretien.</p>
+    <p class="body">L'application Claude apporte déjà les modèles, le courrier, l'agenda et le web. <b>Lorisse ajoute ce qui manque&nbsp;: une mémoire qui dure, avec des règles.</b></p>
+  </section>
+
+  <section id="ce-qu-il-fait">
+    <h2>Ce que Lorisse fait</h2>
+    <ul class="checks">
+      <li><b>Il retient sans qu'on le lui demande.</b> Une décision, un prix, une promesse, un détail sur quelqu'un&nbsp;: c'est rangé pendant que vous parlez, avec vos mots, pas un résumé.</li>
+      <li><b>Il retrouve.</b> Par un mot, un nom, un sujet. Chaque souvenir est lié à ceux qui l'entourent.</li>
+      <li><b>Il garde vos documents avec ce qu'ils concernent.</b> Le devis avec les travaux, la lettre avec le dossier. Vous retrouvez le papier en retrouvant le sujet.</li>
+      <li><b>Il sait revenir en arrière.</b> Chaque changement est un pas dans l'histoire du dossier. «&nbsp;Annule ça&nbsp;», et c'est défait. Rien n'est jamais supprimé.</li>
+      <li><b>Il suit vos règles.</b> Vous écrivez une fois ce qui peut se faire sans vous demander, et ce qui ne se fait jamais. Moins d'autorisations à accorder à chaque geste.</li>
+      <li><b>Il vous connaît dès le premier mot.</b> Une page à vous dit qui vous êtes et comment vous aimez qu'on vous réponde. Tapez «&nbsp;plop&nbsp;», et la conversation part de là.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>À vous, vraiment</h2>
+    <p class="body"><b>Des fichiers, pas une boîte noire.</b> Un souvenir, un fichier texte. Vous pouvez les ouvrir, les lire, les copier, sans Lorisse et sans personne.</p>
+    <p class="body"><b>Chez vous.</b> Le dossier est sur votre machine. Le programme n'ouvre aucune connexion&nbsp;: rien ne part, nulle part. Le garder aussi en ligne est votre choix, jamais une obligation.</p>
+    <p class="body"><b>Ce que vous marquez confidentiel n'existe pas pour Claude.</b> Ni le texte, ni le titre, ni même le fait qu'il y en ait un.</p>
   </section>
 
   <section id="installer">
@@ -46,9 +78,18 @@
       <li><span>Ouvrez <b>Customize</b>, puis <b>Plugins</b>.</span></li>
       <li><span>Choisissez <b>Add</b>, puis <b>Add marketplace</b>, et tapez <code>FreakingDuck/lorisse-plugin</code>.</span></li>
       <li><span>Trouvez Lorisse dans la liste et installez le plugin.</span></li>
-      <li><span>Lancez une tâche Cowork et tapez «&nbsp;Bonjour Lorisse, où es-tu&#8239;?&nbsp;».</span></li>
+      <li><span>Quand l'application demande <b>Memory folder</b>, indiquez le dossier où vit votre mémoire.</span></li>
+      <li><span>Ouvrez l'onglet <b>Code</b> et tapez «&nbsp;plop&nbsp;».</span></li>
     </ol>
-    <p class="body">Lorisse vous répond, et vous dit dans quel dossier vous êtes.</p>
+    <p class="where">Lorisse vous répond&nbsp;: votre page d'accueil, l'état de votre mémoire, et ce qu'il a rangé en dernier.</p>
+
+    <h3>Quand une nouvelle version arrive</h3>
+    <p class="body">Dans <b>Plugins</b>, ouvrez Lorisse et choisissez <b>Update</b>. Vos souvenirs ne bougent pas&nbsp;: ils sont dans votre dossier, pas dans le plugin.</p>
+  </section>
+
+  <section>
+    <h2>Bientôt</h2>
+    <p class="body">Un dossier prêt en une phrase pour bien démarrer, ce que votre assistant sait déjà de vous repris dès le premier jour, vos documents rangés à leur arrivée, et Lorisse sur votre téléphone.</p>
   </section>
 
   <p class="made">Fait avec l'IA, à lire comme tel. Rien ici n'est garanti&#8239;; ce que cela fait sur votre machine vous appartient.</p>
