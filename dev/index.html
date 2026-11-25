@@ -9,6 +9,15 @@
 <meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" href="../style.css">
+<style>
+  /* the hero with the eye on the right */
+  .hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+  .cb-eye.big { width: 220px; height: 220px; }
+  .big .cb-eye-off-in { inset: 2px; }
+  .big .cb-eye-pupil { box-shadow: inset 6px 6px 0 -2px var(--cb-eye-rim); }
+  @media (max-width: 820px) { .cb-eye.big { width: 150px; height: 150px; } }
+  @media (max-width: 640px) { .hero-row { gap: 16px; } .cb-eye.big { width: 92px; height: 92px; } .big .cb-eye-pupil { box-shadow: inset 3px 3px 0 -1px var(--cb-eye-rim); } }
+</style>
 </head>
 <body>
 <header>
@@ -22,10 +31,13 @@
 </header>
 
 <main class="wrap">
-  <div class="hero">
-    <h1>Lorisse</h1>
-    <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
-    <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
+  <div class="hero hero-row">
+    <div>
+      <h1>Lorisse</h1>
+      <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
+      <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
+    </div>
+    <span class="cb-eye big" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span>
   </div>
 
   <section>
