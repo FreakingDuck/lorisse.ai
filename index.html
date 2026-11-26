@@ -16,6 +16,21 @@
   .big .cb-eye-pupil { box-shadow: inset 6px 6px 0 -2px var(--cb-eye-rim); }
   @media (max-width: 820px) { .cb-eye.big { width: 150px; height: 150px; } }
   @media (max-width: 640px) { .hero-row { gap: 16px; } .cb-eye.big { width: 92px; height: 92px; } .big .cb-eye-pupil { box-shadow: inset 3px 3px 0 -1px var(--cb-eye-rim); } }
+  /* the eye is alive: it follows the pointer, says a word underneath, and answers a click */
+  .stage { display: grid; justify-items: center; gap: 10px; width: 220px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .stage .cb-eye:focus-visible { outline: 2px solid var(--cb-blue); outline-offset: 8px; }
+  .say { margin: 0; min-height: 1.5em; max-width: 220px; text-align: center; font-size: 16px; line-height: 1.35; color: var(--cb-ink-2); }
+  .say i { display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -2px; background: var(--cb-ink-3); }
+  /* a wink closes the pupil only: the dark disc around it stays round */
+  .big .cb-eye-pupil { transition: translate .12s ease-out, scale .14s ease-in-out; }
+  .big.is-wink .cb-eye-pupil { scale: 1 .08; }
+  .big .cb-eye-q { transition: opacity .25s ease, background-color .25s ease; }
+  .cb-eye-q--3 { -webkit-mask: conic-gradient(from -45deg, transparent 0 180deg, #000 0 267deg, transparent 0); mask: conic-gradient(from -45deg, transparent 0 180deg, #000 0 267deg, transparent 0); }
+  .cb-eye-q--4 { -webkit-mask: conic-gradient(from -45deg, transparent 0 270deg, #000 0 357deg, transparent 0); mask: conic-gradient(from -45deg, transparent 0 270deg, #000 0 357deg, transparent 0); }
+  @keyframes eye-work { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+  @media (max-width: 820px) { .stage { width: 150px; } .say { max-width: 150px; font-size: 14px; } }
+  @media (max-width: 640px) { .stage { width: 96px; } .say { max-width: 96px; font-size: 12.5px; } }
+  @media (prefers-reduced-motion: reduce) { .big .cb-eye-pupil, .big .cb-eye-q { transition: none; } }
 </style>
 </head>
 <body>
@@ -36,7 +51,10 @@
       <p class="lede">Une mémoire qui est à vous, dans des fichiers que vous pouvez lire.</p>
       <a class="cta" href="#installer">Installer Lorisse <span aria-hidden="true">→</span></a>
     </div>
-    <span class="cb-eye big" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span>
+    <div class="stage" id="stage">
+      <span class="cb-eye big" id="eye" role="button" tabindex="0" aria-label="L'œil de Lorisse"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-q cb-eye-q--3"></span><span class="cb-eye-q cb-eye-q--4"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span>
+      <p class="say" id="say" aria-live="polite"></p>
+    </div>
   </div>
 
   <section>
@@ -60,8 +78,8 @@
   <section>
     <h2>À vous, vraiment</h2>
     <p class="body"><b>Des fichiers, pas une boîte noire.</b> Un souvenir, un fichier texte. Vous pouvez les ouvrir, les lire, les copier, sans Lorisse et sans personne.</p>
-    <p class="body"><b>Chez vous.</b> Le dossier est sur votre machine. Le programme n'ouvre aucune connexion&nbsp;: rien ne part, nulle part. Le garder aussi en ligne est votre choix, jamais une obligation.</p>
-    <p class="body"><b>Ce que vous marquez confidentiel n'existe pas pour Claude.</b> Ni le texte, ni le titre, ni même le fait qu'il y en ait un.</p>
+    <p class="body"><b>Chez vous.</b> Le dossier est sur votre machine. Le programme n'ouvre aucune connexion&nbsp;: rien ne part, nulle part. Pas de compte à créer. Le garder aussi en ligne est votre choix, jamais une obligation.</p>
+    <p class="body"><b>Ce que vous marquez confidentiel n'existe pas pour Claude.</b> Ni le texte, ni le titre, ni même le fait qu'il y en ait un. Sauf le dépôt que vous choisissez vous-même de lui ouvrir, pour y travailler avec lui&nbsp;: ce qu'il y lit n'en sort pas.</p>
   </section>
 
   <section id="installer">
@@ -74,22 +92,32 @@
       <div class="pane pane-win note"><p>Dans l'application Claude pour <b>Windows</b>&nbsp;:</p></div>
       <div class="pane pane-mac note"><p>Dans l'application Claude pour <b>Mac</b>&nbsp;:</p></div>
     </div>
+    <p class="body">Les boutons de l'application sont en anglais&nbsp;: ils sont écrits ici tels que vous les verrez.</p>
     <ol class="steps">
       <li><span>Ouvrez <b>Customize</b>, puis <b>Plugins</b>.</span></li>
-      <li><span>Choisissez <b>Add</b>, puis <b>Add marketplace</b>, et tapez <code>FreakingDuck/lorisse-plugin</code>.</span></li>
-      <li><span>Trouvez Lorisse dans la liste et installez le plugin.</span></li>
-      <li><span>Quand l'application demande <b>Memory folder</b>, indiquez le dossier où vit votre mémoire.</span></li>
-      <li><span>Ouvrez l'onglet <b>Code</b> et tapez «&nbsp;plop&nbsp;».</span></li>
+      <li><span>Choisissez <b>Add</b>, puis <b>Add marketplace</b>. Dans la case, tapez <code>FreakingDuck/lorisse-plugin</code> et validez. Lorisse apparaît dans la liste.</span></li>
+      <li><span>Sur la ligne de Lorisse, choisissez <b>Install</b>.</span></li>
+      <li><span>Une fenêtre peut demander <b>Memory folder</b>. La première fois, laissez la case vide et enregistrez&nbsp;: Lorisse créera votre dossier avec vous.</span></li>
+      <li><span>Ouvrez une <b>nouvelle</b> conversation dans l'onglet <b>Code</b>, et tapez «&nbsp;plop&nbsp;».</span></li>
     </ol>
-    <p class="where">Lorisse vous répond&nbsp;: votre page d'accueil, l'état de votre mémoire, et ce qu'il a rangé en dernier.</p>
+    <p class="where"><b>Ce que vous devez voir&nbsp;:</b> Lorisse dit qu'il n'a pas encore de mémoire et propose d'en créer une. Répondez oui&nbsp;: il vous pose trois questions (votre nom, ce que vous voulez retenir, comment vous aimez qu'on vous réponde), et c'est prêt. Vous n'avez rien à savoir des dossiers.</p>
+
+    <h3>Si quelque chose coince</h3>
+    <p class="body"><b>«&nbsp;plop&nbsp;» ne donne rien.</b> Vous êtes sans doute dans une conversation ordinaire. Lorisse ne vit que dans l'onglet <b>Code</b> et dans <b>Cowork</b>, là où Claude peut lancer un programme sur votre machine.</p>
+    <p class="body"><b>Vous avez déjà un dossier de mémoire.</b> Donnez-le dans <b>Memory folder</b>&nbsp;: c'est le dossier qui contient le fichier <code>config.yaml</code>, pas l'un de ses sous-dossiers. Pour le changer plus tard&nbsp;: <b>Customize</b>, <b>Plugins</b>, puis Lorisse.</p>
+    <p class="body"><b>Vous avez changé un réglage et rien ne bouge.</b> Ouvrez une nouvelle conversation&nbsp;: celle qui était ouverte garde l'ancien.</p>
+    <p class="body"><b>Vous voulez savoir où il lit.</b> Demandez «&nbsp;Lorisse, où es-tu&#8239;?&nbsp;»&nbsp;: il répond avec le dossier et sa version.</p>
+
+    <h3>Le premier jour ne part pas de zéro</h3>
+    <p class="body">Votre assistant vous connaît déjà un peu. Lorisse vous donne un texte à copier&nbsp;: vous le collez chez lui, vous rapportez sa réponse, et tout ce qu'il savait de vous devient vos premiers souvenirs, datés, avec vos mots.</p>
 
     <h3>Quand une nouvelle version arrive</h3>
-    <p class="body">Dans <b>Plugins</b>, ouvrez Lorisse et choisissez <b>Update</b>. Vos souvenirs ne bougent pas&nbsp;: ils sont dans votre dossier, pas dans le plugin.</p>
+    <p class="body">Dans <b>Plugins</b>, ouvrez Lorisse et choisissez <b>Update</b>. Puis fermez l'application et rouvrez-la&nbsp;: tant qu'elle tourne, elle garde l'ancienne version en main. Vos souvenirs ne bougent pas&nbsp;: ils sont dans votre dossier, pas dans le plugin.</p>
   </section>
 
   <section>
     <h2>Bientôt</h2>
-    <p class="body">Un dossier prêt en une phrase pour bien démarrer, ce que votre assistant sait déjà de vous repris dès le premier jour, vos documents rangés à leur arrivée, et Lorisse sur votre téléphone.</p>
+    <p class="body">Vos documents rangés tout seuls à leur arrivée, les gros fichiers gardés là où ils sont, et Lorisse sur votre téléphone.</p>
   </section>
 
   <p class="made">Fait avec l'IA, à lire comme tel. Rien ici n'est garanti&#8239;; ce que cela fait sur votre machine vous appartient.</p>
@@ -101,5 +129,110 @@
     <span>La façon de travailler derrière&nbsp;: <a href="https://whysoserious.wtf/fr/method/">whysoserious.wtf/fr/method/</a></span>
   </div>
 </footer>
+<script>
+(function () {
+  "use strict";
+  var eye = document.getElementById("eye"), stage = document.getElementById("stage"), say = document.getElementById("say");
+  if (!eye || !stage || !say) return;
+  var pupil = eye.querySelector(".cb-eye-pupil");
+  var quarters = Array.prototype.slice.call(eye.querySelectorAll(".cb-eye-q"));
+  var reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var BLUE = "var(--cb-blue)", ORANGE = "var(--cb-orange)", PINK = "var(--cb-pink)", GREEN = "var(--cb-green)";
+
+  // What the eye does by itself: one small story, again and again.
+  var STORY = [
+    { at: 0, step: 0, say: "plop." },
+    { at: 3200, step: 1, say: "j'écoute…" },
+    { at: 4600, step: 2, say: "je cherche…" },
+    { at: 6000, step: 3, say: "je range…" },
+    { at: 7400, step: 4, say: "je relie…" },
+    { at: 8800, step: 5, say: "rangé." },
+    { at: 12500, step: 0, say: "" }
+  ];
+  // What it answers to a click, one after the other.
+  var CLICKS = [
+    { color: BLUE, say: "oui ?" },
+    { color: GREEN, say: "je m'en souviens." },
+    { color: ORANGE, say: "c'est à vous, pas à moi." },
+    { color: PINK, say: "chut. c'est confidentiel." },
+    { color: GREEN, say: "annulé. rien n'est perdu." },
+    { color: BLUE, say: "plop !" }
+  ];
+  var LOOP_MS = 17000, CLICK_MS = 6000, TYPE_MS = 28, WINK_MS = 320;
+  var timers = [], typing = null, back = null, winking = null, clicks = 0;
+
+  // One quarter: a colour and how bright; "" turns it off; "work" makes it pulse.
+  function quarter(i, color, opacity, work) {
+    var q = quarters[i];
+    if (!q) return;
+    q.style.animation = work ? "eye-work 1s ease-in-out infinite" : "none";
+    q.style.background = color || "transparent";
+    q.style.opacity = color ? String(opacity) : "0";
+  }
+  function rest() {
+    quarters.forEach(function (q) { q.style.animation = ""; q.style.background = ""; q.style.opacity = ""; });
+    quarter(2, "", 0); quarter(3, "", 0);
+  }
+  function step(n) {
+    if (n === 0) { rest(); return; }
+    for (var i = 0; i < 4; i++) {
+      if (n === 5 || i < n - 1) quarter(i, BLUE, 1);
+      else if (i === n - 1) quarter(i, ORANGE, 1, !reduce);
+      else quarter(i, "", 0);
+    }
+  }
+  function all(color) { for (var i = 0; i < 4; i++) quarter(i, color, 1); }
+
+  function speak(text) {
+    clearInterval(typing);
+    if (!text || reduce) { say.textContent = text || ""; return; }
+    var i = 0;
+    say.textContent = "";
+    typing = setInterval(function () {
+      i++;
+      say.textContent = text.slice(0, i);
+      if (i < text.length) say.appendChild(document.createElement("i"));
+      else clearInterval(typing);
+    }, TYPE_MS);
+  }
+  function wink() {
+    clearTimeout(winking);
+    eye.classList.add("is-wink");
+    winking = setTimeout(function () { eye.classList.remove("is-wink"); }, WINK_MS);
+  }
+  function story() {
+    timers.forEach(clearTimeout);
+    timers = STORY.map(function (p) {
+      return setTimeout(function () { step(p.step); speak(p.say); }, p.at);
+    });
+    timers.push(setTimeout(story, LOOP_MS));
+  }
+  function click() {
+    var c = CLICKS[clicks % CLICKS.length];
+    clicks++;
+    timers.forEach(clearTimeout);
+    clearTimeout(back);
+    wink();
+    all(c.color);
+    speak(c.say);
+    back = setTimeout(story, CLICK_MS);
+  }
+  function aim(e) {
+    var r = eye.getBoundingClientRect(), s = r.width || 1;
+    var dx = e.clientX - (r.left + s / 2), dy = e.clientY - (r.top + s / 2), d = Math.hypot(dx, dy) || 1;
+    var reach = s * 0.1 * Math.min(1, d / 480);
+    pupil.style.setProperty("translate", (dx / d * reach).toFixed(1) + "px " + (dy / d * reach).toFixed(1) + "px");
+  }
+
+  stage.addEventListener("click", click);
+  eye.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); click(); }
+  });
+  eye.addEventListener("mouseenter", function () { if (!reduce) wink(); });
+  window.addEventListener("pointermove", aim);
+
+  if (reduce) { rest(); say.textContent = "plop."; } else { story(); }
+})();
+</script>
 </body>
 </html>
