@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lorisse, les prix</title>
+<meta name="description" content="Lorisse est gratuite. Ce qui se paie, c'est notre temps, si vous voulez qu'on l'installe et qu'on l'entretienne pour vous.">
+<meta name="theme-color" content="#07111a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ebe7e0" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="../../style.css">
+<style>
+  /* three ways to have Lorisse, side by side on a wide screen, stacked on a phone */
+  .ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 0 8px; }
+  .way { padding: 20px; border: 1px solid var(--cb-line); border-radius: var(--cb-radius-sm); }
+  .way h3 { margin: 0 0 4px; }
+  .way .price { margin: 0 0 12px; font-size: 26px; font-weight: 800; color: var(--cb-ink); }
+  .way .price small { display: block; font-size: 14px; font-weight: 400; color: var(--cb-ink-3); }
+  .way p.body { font-size: 15.5px; }
+  .way .soon { margin: 12px 0 0; font-size: 14px; color: var(--cb-ink-3); }
+  @media (max-width: 820px) { .ways { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../"><span class="cb-eye" aria-hidden="true"><span class="cb-eye-off"></span><span class="cb-eye-off-in"></span><span class="cb-eye-q cb-eye-q--1"></span><span class="cb-eye-q cb-eye-q--2"></span><span class="cb-eye-core"><span class="cb-eye-pupil"><span class="cb-eye-inner"></span></span></span></span> lorisse.ai</a>
+    <nav aria-label="Les pages">
+      <a href="../#installer">Installer</a>
+      <a href="./">Les prix</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Les prix</h1>
+    <p class="lede">Lorisse est gratuite. Ce qui se paie, c'est notre temps, si vous voulez qu'on s'en occupe pour vous.</p>
+  </div>
+
+  <section>
+    <div class="ways">
+      <div class="way">
+        <h3>Sur votre machine</h3>
+        <p class="price">Gratuit</p>
+        <p class="body">Vous installez le plugin en cinq minutes. Votre mémoire reste dans un dossier de votre ordinateur.</p>
+        <p class="body"><a href="../#installer">Installer Lorisse</a></p>
+      </div>
+      <div class="way">
+        <h3>Sur votre serveur, par vous-même</h3>
+        <p class="price">Gratuit</p>
+        <p class="body">Le code est ouvert. Vous l'installez où vous voulez et vous vous en occupez&nbsp;: les mises à jour et la sécurité sont à vous.</p>
+        <p class="body"><a href="https://github.com/whysoserious-wtf/lorisse-plugin">Voir le code</a></p>
+      </div>
+      <div class="way">
+        <h3>Sur un serveur, installée par nous</h3>
+        <p class="price">150&nbsp;€ <small>l'installation&nbsp;; 50&nbsp;€ pendant le lancement</small></p>
+        <p class="price">10&nbsp;€ par mois <small>l'entretien&nbsp;; 5&nbsp;€ pendant le lancement</small></p>
+        <p class="body">Pour avoir Lorisse sur votre téléphone, ordinateur éteint. Nous installons, nous faisons les mises à jour, nous suivons les alertes de sécurité.</p>
+        <p class="soon">Pas encore ouvert&nbsp;: nous l'essayons d'abord chez nous.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ce qui n'est pas compris</h2>
+    <p class="body"><b>Un abonnement Claude</b>, environ 20&nbsp;€ par mois, payé à Anthropic. Lorisse est un plugin de l'application Claude&nbsp;: sans elle, rien ne marche. C'est vrai pour les trois façons.</p>
+    <p class="body"><b>Le serveur</b>, environ 5 à 10&nbsp;€ par mois, payé à l'hébergeur, pour les deux façons en ligne. Il est à votre nom&nbsp;: le serveur est à vous, et ce qu'il contient aussi.</p>
+  </section>
+
+  <section>
+    <h2>Pour un métier</h2>
+    <p class="body">Si vous y mettez votre activité, avec des clients et des dossiers, il y a plus à protéger. Ce sera un prix à part, plus tard.</p>
+  </section>
+
+  <p class="made">Fait avec l'IA, à lire comme tel. Ces prix sont une annonce, pas encore une offre&nbsp;: rien n'est en vente aujourd'hui.</p>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>Le code&nbsp;: <a href="https://github.com/whysoserious-wtf/lorisse-plugin">github.com/whysoserious-wtf/lorisse-plugin</a></span>
+    <span><a href="../legal/">Mentions légales et vos données</a></span>
+  </div>
+</footer>
+</body>
+</html>
